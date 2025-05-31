@@ -2,12 +2,25 @@
   "name": "express-plus",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "types/",
+  "files": [
+    "dist",
+    "types"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build":"tsc"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "express-plus",
+    "express-js-addon",
+    "express-pro"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/suryanshvermaa/express-plus.git"
+  },
+  "author": "suryansh verma",
   "license": "ISC",
   "packageManager": "pnpm@10.8.0",
   "dependencies": {
