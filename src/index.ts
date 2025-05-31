@@ -1,6 +1,7 @@
 import express,{RequestHandler} from 'express';
 import cors from 'cors';
 import authMiddleware from './middlewares/auth';
+import response from './utils/response';
 
 function corsMiddleware(): RequestHandler {
     return cors();
@@ -8,6 +9,7 @@ function corsMiddleware(): RequestHandler {
 
 express.cors = corsMiddleware;
 express.auth = authMiddleware;
+express.resp=response;
 
 //for common js
 module.exports=express;
