@@ -1,4 +1,5 @@
 import { RequestHandler, Request,Response } from "express";
+import type * as Bcrypt from "bcrypt";
 
 declare module "express" {
   export interface Express {
@@ -6,10 +7,12 @@ declare module "express" {
     auth(authParams: IAuth): RequestHandler;
     errorHandler: RequestHandler;
     resp(res:Response,status: number,message: string,data: object): Response
+    bcrypt: Bcrypt
   }
   export function resp(res:Response,status: number,message: string,data: object):Response
   export function cors(): RequestHandler;
   export function auth(authParams: IAuth): RequestHandler;
   export const errorHandler: RequestHandler;
+  export let bcrypt: Bcrypt
 }
 
