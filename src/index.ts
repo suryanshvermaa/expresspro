@@ -8,7 +8,6 @@ import asyncHandler from './utils/asyncHandler';
 function corsMiddleware(): RequestHandler {
     return cors();
 }
-
 express.cors = corsMiddleware;
 express.auth = authMiddleware;
 express.resp=response;

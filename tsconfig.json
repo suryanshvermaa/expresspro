@@ -8,8 +8,8 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "typeRoots": ["./types/"]
+    "typeRoots": ["@types","@types/express","@types/request","@types/express-pro-test"]
   },
-  "exclude": ["example"],
-  "include": ["src","types"]
+  "exclude": ["./example","./dist","node_modules"],
+  "include": ["./src"]
 }
