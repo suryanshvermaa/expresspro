@@ -1,12 +1,12 @@
 {
   "name": "ts",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "start":"node dist/index.js",
-    "dev":"nodemon src/index.ts",
-    "build":"tsc -p ."
+    "start": "node dist/index.js",
+    "dev": "nodemon src/index.ts",
+    "build": "tsc -p ."
   },
   "keywords": [],
   "author": "",
