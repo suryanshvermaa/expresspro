@@ -1,9 +1,9 @@
 {
-  "name": "express-plus",
+  "name": "expresspro",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
-  "types": "types/",
+  "types": "./types",
   "files": [
     "dist",
     "types"
