@@ -1,5 +1,5 @@
 import { NextFunction, Request, RequestHandler, Response } from "express";
-import { IAuth } from "../../types/Express/";
+import { IAuth } from "auth";
 import JWT from "../jwt";
 
 function authMiddleware(authParams:IAuth):RequestHandler{
