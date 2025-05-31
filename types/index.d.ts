@@ -1,4 +1,5 @@
 import express,{Express} from "express";
 declare module "expresspro" {
-    export default function express():Express;
+    import * as express from 'express';
+    export = express;
 }
