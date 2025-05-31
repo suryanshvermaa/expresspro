@@ -1,6 +1,10 @@
 import { NextFunction, Request, RequestHandler, Response } from "express";
-import { IAuth } from "auth";
 import JWT from "../jwt";
+
+export interface IAuth {
+    secret: string;
+    tokename: string;
+}
 
 function authMiddleware(authParams:IAuth):RequestHandler{
     return async(req:Request,res:Response,next:NextFunction)=>{
