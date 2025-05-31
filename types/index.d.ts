@@ -1,13 +1,6 @@
-import express,{Express} from "express";
-declare module "expresspro" {
-    import * as express from 'express';
-    export = express;
-}
-  
-import "express";
 import type * as Bcrypt from "bcrypt";
 declare module "express"{
-      interface Express{
+      export interface Express{
             bcrypt: Bcrypt;
             errorHandler: RequestHandler;
             auth(authParams: IAuth): RequestHandle;
