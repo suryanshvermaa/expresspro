@@ -8,7 +8,7 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "typeRoots": ["./types/auth","./types/Response","./types/Response/Request","./types/Express","./types/"]
+    "typeRoots": ["./types/"]
   },
   "exclude": ["example"],
   "include": ["src","types"]
