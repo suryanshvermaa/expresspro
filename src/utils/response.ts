@@ -1,5 +1,9 @@
 import { Response } from "express";
-import { IRes } from "express-response";
+export interface IRes {
+	success: boolean;
+	message: string;
+	data: object;
+}
 
 /**
  * @description: response function to send response
