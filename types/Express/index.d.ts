@@ -1,4 +1,3 @@
-import { RequestHandler, Request,Response } from "express";
 import type * as Bcrypt from "bcrypt";
 
 declare module "express" {
