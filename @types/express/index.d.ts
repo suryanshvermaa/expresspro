@@ -57,19 +57,87 @@ declare namespace e {
     export function Router(options?: RouterOptions): core.Router;
 
     // my defined functions -> Suryansh Vermas
+    /**
+    * @description Custom error class for handling application errors
+    * @class AppError
+    * @extends Error
+    * @param {string} message - The error message
+    * @param {number} statusCode - The HTTP status code associated with the error
+    * @example
+    * throw new AppError('Not Found', 404);
+    */
     export class AppError extends Error{
         constructor(message: string, statusCode: number);
     }
+    /**
+    * auth class for handling JWT authentication
+    * @class Auth
+    * @param {string} authSecret - The secret key used to sign the JWT tokens
+    * @param {string} tokenname - The name of the token in the request {headers/body/params/query/authorization-header}
+    * @description This class provides methods to create and verify JWT tokens, and a middleware function to authenticate requests.
+    */
     export class auth{
         constructor(authSecret:string,tokenname:string);
+         /**
+        * 
+        * @returns {Function} - Returns a middleware function that checks for a valid JWT token in the request headers or body
+        * @throws {AppError} - Throws an error if the token is not provided or is invalid
+        * @description - This middleware function checks for a valid JWT token in the request headers or body. If the token is valid, it adds the user data to the request object and calls the next middleware. If the token is invalid or not provided, it throws an AppError with a 401 status code.
+        */
         public authMiddleware():(req: Request, res: Response, next: NextFunction) => void;
+        /**
+        * Creates a JWT token with the provided data and expiration time
+        * @param {data:object} data - Data to be included in the token
+        * @param {number} time - Expiration time in minutes
+        * @returns {Promise<String>} - Returns a promise that resolves to the created token
+        */
         public async createToken(data:object,time:number):Promise<string>;
+        /**
+        * Verifies the provided JWT token
+        * @param {string} token - The JWT token to verify
+        * @returns {Promise<object>} - Returns a promise that resolves to an object containing verification status and data
+        */
         public async verifyToken(token:string):Promise<object>;
     }
+    /**
+    * @description Error handling middleware
+    * @param {AppError|Error} err
+    * @param {Request} req
+    * @param {Response} res
+    * @param {NextFunction} _next
+    */
     export function error(err: Error | ExpressError, req: Request, res: Response, _next: NextFunction): void;
-    export var cors: typeof import("corss");
+    
+    /**
+     * @description cors middleware for handling Cross-Origin Resource Sharing (CORS) requests
+     */
+    export var cors: typeof import("cors");
+    /**
+     * 
+     * @description Function to send a response with a specific status, message, and data
+     * @param {Response} res 
+     * @param {number} status 
+     * @param {string} message 
+     * @param {object} data
+     */
     export function resp(res: Response, status: number, message: string, data: object): void;
-    export var bcrypt: typeof import('bcrypt');
+    /**
+     * @description bcyptjs module for hashing passwords
+     */
+    export var bcrypt: typeof import('bcryptjs');
+    /**
+    * 
+    * @param {(req:Request, res:Response, next:NextFunction)=>Promise<any>} fn - The async function to handle.
+    * @description A middleware to handle async functions in Express.js.
+    * It catches any errors thrown by the async function and passes them to the next middleware.
+    * This is useful for avoiding try-catch blocks in every route handler.
+    * @returns {RequestHandler} - A middleware function that handles the async function.
+    * @example
+    * app.get('/example', asyncHandler(async (req, res) => {
+    *   const data = await someAsyncFunction();
+    *   res.json(data);
+    * }));
+    */
     export function asyncHandler(fn: (req: Request, res: Response, next: NextFunction) => Promise<any>):RequestHandler;
 
 
