@@ -1,5 +1,10 @@
 import jwt from "jsonwebtoken";
 import {AppError, NextFunction, Request, Response} from "express";
+/**
+ * Auth class for handling JWT authentication
+ * @class Auth
+ * @description This class provides methods to create and verify JWT tokens, and a middleware function to authenticate requests.
+ */
 class Auth{
     private authSecret:string;
     private tokenname:string;
@@ -9,6 +14,12 @@ class Auth{
         this.authMiddleware = this.authMiddleware.bind(this);
     }
 
+    /**
+     * 
+     * @returns {Function} - Returns a middleware function that checks for a valid JWT token in the request headers or body
+     * @throws {AppError} - Throws an error if the token is not provided or is invalid
+     * @description - This middleware function checks for a valid JWT token in the request headers or body. If the token is valid, it adds the user data to the request object and calls the next middleware. If the token is invalid or not provided, it throws an AppError with a 401 status code.
+     */
     public authMiddleware(){
         return async(req:Request,res:Response,next:NextFunction):Promise<void>=>{
             try {
