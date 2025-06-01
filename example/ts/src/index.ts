@@ -6,7 +6,7 @@ const app=express();
 app.use(express.json());
 app.use(express.cors());
 
-app.get("/",express.async(async(req:Request,res:Response)=>{
+app.get("/",express.asyncHandler(async(req:Request,res:Response)=>{
     resp(res,200,"server is running",{});
 }))
 
