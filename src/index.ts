@@ -1,4 +1,4 @@
-import express,{Application, RequestHandler} from 'express';
+import express,{RequestHandler} from 'express';
 import cors from 'cors';
 import authMiddleware from './middlewares/auth';
 import response from './utils/response';
@@ -15,7 +15,7 @@ express.cors = corsMiddleware;
 express.auth = authMiddleware;
 express.resp=response;
 express.bcrypt=bcrypt;
-express.async=asyncHandler;
+express.asyncHandler=asyncHandler;
 express.error=errorHandler
 
 module.exports = express; // for commonjs
