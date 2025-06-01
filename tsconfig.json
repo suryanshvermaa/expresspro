@@ -8,6 +8,7 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
+    "allowSyntheticDefaultImports": true,
     "typeRoots": ["@types","@types/express","@types/request","@types/express-pro-test"]
   },
   "exclude": ["./example","./dist","node_modules"],

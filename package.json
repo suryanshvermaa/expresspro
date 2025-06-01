@@ -1,11 +1,12 @@
 {
   "name": "express-pro-test",
-  "version": "1.0.5",
+  "version": "1.5.0",
   "description": "",
   "main": "dist/index.js",
   "types": "@types",
   "files": [
-    "@types"
+    "@types",
+    "dist"
   ],
   "scripts": {
     "build": "tsc"

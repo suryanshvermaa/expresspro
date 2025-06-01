@@ -1,3 +1,17 @@
-import express from "express-pro-test";
+import express, { NextFunction, Request, Response ,resp,Application} from "express-pro-test";
 
-const app=express.default();
+//@ts-ignore
+const app=express();
+
+app.use(express.json());
+// app.use(express.cors());
+// app.use(express.auth({secret:"my-secret",tokenname:"authToken"}));s
+
+app.get("/",express.async(async(req:Request,res:Response,next:NextFunction)=>{
+    resp(res,200,"server is running",{});
+}))
+
+app.use(express.error)
+app.listen(3000,()=>{
+    console.log("Server is running");
+})

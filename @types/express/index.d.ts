@@ -56,7 +56,8 @@ declare namespace e {
 
     export function Router(options?: RouterOptions): core.Router;
 
-    // my defined functions -> Suryansh Verma
+    // my defined functions -> Suryansh Vermas
+    export function error(err: Error | ExpressError, req: Request, res: Response, _next: NextFunction): void;
     export function cors(): RequestHandler;
     export function auth({ secret, tokenname }: { secret: string, tokenname: string }):core.RequestHandler;
     export function resp(res: Response, status: number, message: string, data: object): void;
