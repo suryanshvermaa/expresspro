@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import response from './utils/response';
-import bcrypt from "bcrypt"
+import bcrypt from "bcryptjs"
 import asyncHandler from './utils/asyncHandler';
 import errorHandler from './middlewares/error';
 import { AppError } from './utils/error';
