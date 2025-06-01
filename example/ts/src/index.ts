@@ -1,4 +1,4 @@
-import express, { NextFunction, Request, Response ,resp,Application} from "express-pro-test";
+import express, { Request, Response ,resp} from "express-pro-test";
 
 //@ts-ignore
 const app=express();
