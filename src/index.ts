@@ -1,4 +1,4 @@
-import express,{RequestHandler} from 'express';
+import express from 'express';
 import cors from 'cors';
 import response from './utils/response';
 import bcrypt from "bcrypt"
