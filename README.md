@@ -6,7 +6,7 @@ Express Pro is an enhanced version of Express.js that provides additional utilit
 
 - Built-in CORS middleware
 - Authentication middleware
-- Response utilities
+- Response utilitiess
 - Bcrypt integration for password hashing
 - Async handler for better error management
 - JWT support for authentication

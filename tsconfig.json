@@ -9,7 +9,7 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "allowSyntheticDefaultImports": true,
-    "typeRoots": ["@types","@types/express","@types/request","@types/express-pro-test"]
+    "typeRoots": ["@types","@types/express","@types/request","@types/expresspro"]
   },
   "exclude": ["./example","./dist","node_modules"],
   "include": ["./src"]

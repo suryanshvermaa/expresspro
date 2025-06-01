@@ -1,22 +1,19 @@
 import express,{RequestHandler} from 'express';
 import cors from 'cors';
-import authMiddleware from './middlewares/auth';
 import response from './utils/response';
 import bcrypt from "bcrypt"
 import asyncHandler from './utils/asyncHandler';
 import errorHandler from './middlewares/error';
+import { AppError } from './utils/error';
+import Auth from './jwt';
 
-function corsMiddleware(): RequestHandler {
-    return cors();
-}
-
-
-express.cors = corsMiddleware;
-express.auth = authMiddleware;
+express.cors = cors;
+express.auth = Auth;
 express.resp=response;
 express.bcrypt=bcrypt;
 express.asyncHandler=asyncHandler;
-express.error=errorHandler
+express.error=errorHandler;
+express.AppError=AppError;
 
 module.exports = express; // for commonjs
 export default express; // for ES modules

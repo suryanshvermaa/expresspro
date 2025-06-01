@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from "express";
-import { ExpressError } from "../utils/error";
+import { AppError } from "../utils/error";
 
 /**
  * @description Error handling middleware
@@ -9,12 +9,12 @@ import { ExpressError } from "../utils/error";
  * @param _next
  */
 const errorHandler = (
-	err: Error | ExpressError,
+	err: Error | AppError,
 	req: Request,
 	res: Response,
 	_next: NextFunction
 ):void => {
-	const statusCode = err instanceof ExpressError ? err.statusCode : 500;
+	const statusCode = err instanceof AppError ? err.statusCode : 500;
 	res.status(statusCode).json({
 		success: false,
 		message:err.message||"Internal Server Error",

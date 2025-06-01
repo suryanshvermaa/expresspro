@@ -57,9 +57,17 @@ declare namespace e {
     export function Router(options?: RouterOptions): core.Router;
 
     // my defined functions -> Suryansh Vermas
+    export class AppError extends Error{
+        constructor(message: string, statusCode: number);
+    }
+    export class auth{
+        constructor(authSecret:string,tokenname:string);
+        public authMiddleware():(req: Request, res: Response, next: NextFunction) => void;
+        public async createToken(data:object,time:number):Promise<string>;
+        public async verifyToken(token:string):Promise<object>;
+    }
     export function error(err: Error | ExpressError, req: Request, res: Response, _next: NextFunction): void;
-    export function cors(): RequestHandler;
-    export function auth({ secret, tokenname }: { secret: string, tokenname: string }):core.RequestHandler;
+    export var cors: typeof import("corss");
     export function resp(res: Response, status: number, message: string, data: object): void;
     export var bcrypt: typeof import('bcrypt');
     export function asyncHandler(fn: (req: Request, res: Response, next: NextFunction) => Promise<any>):RequestHandler;
@@ -116,7 +124,9 @@ declare namespace e {
         ReqBody = any,
         ReqQuery = core.Query,
         Locals extends Record<string, any> = Record<string, any>,
-    > extends core.Request<P, ResBody, ReqBody, ReqQuery, Locals> {}
+    > extends core.Request<P, ResBody, ReqBody, ReqQuery, Locals> {
+        user?:object;
+    }
     interface RequestHandler<
         P = core.ParamsDictionary,
         ResBody = any,
