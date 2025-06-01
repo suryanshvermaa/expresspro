@@ -4,10 +4,9 @@ import express, { NextFunction, Request, Response ,resp,Application} from "expre
 const app=express();
 
 app.use(express.json());
-// app.use(express.cors());
-// app.use(express.auth({secret:"my-secret",tokenname:"authToken"}));s
+app.use(express.cors());
 
-app.get("/",express.async(async(req:Request,res:Response,next:NextFunction)=>{
+app.get("/",express.async(async(req:Request,res:Response)=>{
     resp(res,200,"server is running",{});
 }))
 
