@@ -3,10 +3,10 @@ import { AppError } from "../utils/error";
 
 /**
  * @description Error handling middleware
- * @param err
- * @param req
- * @param res
- * @param _next
+ * @param {AppError|Error} err
+ * @param {Request} req
+ * @param {Response} res
+ * @param {NextFunction} _next
  */
 const errorHandler = (
 	err: Error | AppError,
