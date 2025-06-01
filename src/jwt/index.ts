@@ -57,7 +57,7 @@ class Auth{
     /**
      * Verifies the provided JWT token
      * @param {string} token - The JWT token to verify
-     * @returns {Promise<>} - Returns a promise that resolves to an object containing verification status and data
+     * @returns {Promise<object>} - Returns a promise that resolves to an object containing verification status and data
      */
     public async verifyToken(token:string):Promise<object>{
         return new Promise(async(resolve,reject)=>{
