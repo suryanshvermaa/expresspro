@@ -140,6 +140,11 @@ declare namespace e {
     */
     export function asyncHandler(fn: (req: Request, res: Response, next: NextFunction) => Promise<any>):RequestHandler;
 
+    /**
+     * @description jsonwebtoken module for handling JSON Web Tokens (JWT)
+     * @see https://www.npmjs.com/package/jsonwebtoken
+     */
+    export var jwt:typeof import("jsonwebtoken");
 
 
     interface RouterOptions {
