@@ -7,10 +7,10 @@ export interface IRes {
 
 /**
  * @description: response function to send response
- * @param res - express response object
- * @param status - http status code
- * @param message - response message
- * @param data - response data
+ * @param {Response} res - express response object
+ * @param {number} status - http status code
+ * @param {string} message - response message
+ * @param {object} data - response data
  * @returns - express response object
  */
 const response = (
