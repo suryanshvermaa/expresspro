@@ -1,6 +1,6 @@
 {
-  "name": "express-pro-test",
-  "version": "1.7.0",
+  "name": "expresspro",
+  "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
   "types": "@types",

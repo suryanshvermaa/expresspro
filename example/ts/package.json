@@ -19,6 +19,6 @@
     "typescript": "^5.8.3"
   },
   "dependencies": {
-    "express-pro-test": "^1.7.0"
+    
   }
 }

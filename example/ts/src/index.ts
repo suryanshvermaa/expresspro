@@ -1,13 +1,29 @@
-import express, { Request, Response ,resp} from "express-pro-test";
+import express, { AppError, Request, Response ,resp} from "expresspro";
 
 //@ts-ignore
 const app=express();
 
 app.use(express.json());
 app.use(express.cors());
+const auth=new express.auth("mySecret","authtoken");
 
 app.get("/",express.asyncHandler(async(req:Request,res:Response)=>{
-    resp(res,200,"server is running",{});
+    return resp(res,200,"server is running",{});
+}))
+
+app.get("/gettoken",express.asyncHandler(async(req:Request,res:Response)=>{
+    const token=await auth.createToken({user:"demo",purpose:"testing"},100);
+    return resp(res,200,"server is running",{token});
+}))
+
+//protected route-> pass tokenname(in query|authorization header|custom tokenname header) which defined in auth class's second argument
+app.get("/protected",auth.authMiddleware(),express.asyncHandler(async(req:Request,res:Response)=>{
+    const tokenData=req.user;
+    return resp(res,200,"protected route is working",{tokenData});
+}))
+
+app.get("error",express.asyncHandler(async(req:Request,res:Response)=>{
+    throw new AppError("This is testing error",400);
 }))
 
 app.use(express.error)
