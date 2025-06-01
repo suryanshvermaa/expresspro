@@ -62,7 +62,7 @@ declare namespace e {
     export function auth({ secret, tokenname }: { secret: string, tokenname: string }):core.RequestHandler;
     export function resp(res: Response, status: number, message: string, data: object): void;
     export var bcrypt: typeof import('bcrypt');
-    export function async (fn: (req: Request, res: Response, next: NextFunction) => Promise<any>):RequestHandler;
+    export function asyncHandler(fn: (req: Request, res: Response, next: NextFunction) => Promise<any>):RequestHandler;
 
 
 

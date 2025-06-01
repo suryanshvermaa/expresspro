@@ -1,6 +1,6 @@
 {
   "name": "express-pro-test",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "description": "",
   "main": "dist/index.js",
   "types": "@types",
@@ -24,9 +24,6 @@
   "license": "ISC",
   "packageManager": "pnpm@10.8.0",
   "dependencies": {
-    "@types/body-parser": "^1.19.5",
-    "@types/express-serve-static-core": "^5.0.6",
-    "@types/serve-static": "^1.15.7",
     "bcrypt": "^6.0.0",
     "cors": "^2.8.5",
     "express": "^5.1.0",
@@ -35,6 +32,8 @@
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
     "@types/cors": "^2.8.18",
-    "@types/jsonwebtoken": "^9.0.9"
+    "@types/express-serve-static-core": "^5.0.6",
+    "@types/jsonwebtoken": "^9.0.9",
+    "@types/serve-static": "^1.15.7"
   }
 }
