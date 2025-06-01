@@ -1,16 +1,19 @@
-# Express Pro
+# ExpressPro
 
-Express Pro is an enhanced version of Express.js that provides additional utilities and middleware to make building web applications easier and more secure.
+[![npm version](https://img.shields.io/npm/v/expresspro.svg)](https://www.npmjs.com/package/expresspro)
+[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
+[![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue.svg)](https://www.typescriptlang.org/)
+
+ExpressPro is an enhanced version of Express.js that provides additional utilities and middleware for building robust web applications. It extends Express with authentication, error handling, and response utilities out of the box.
 
 ## Features
 
-- Built-in CORS middleware
-- Authentication middleware
-- Response utilitiess
-- Bcrypt integration for password hashing
-- Async handler for better error management
-- JWT support for authentication
-- TypeScript support
+- 🔐 **JWT Authentication** - Built-in JWT authentication system
+- 🛡️ **Error Handling** - Global error handler and custom error class
+- 🔄 **Async Handler** - Clean async/await error handling
+- 🔒 **Password Hashing** - Built-in bcrypt integration
+- 🌐 **CORS Support** - Easy CORS configuration
+- 📦 **TypeScript Support** - Full TypeScript support with type definitions
 
 ## Installation
 
@@ -22,74 +25,102 @@ yarn add expresspro
 pnpm add expresspro
 ```
 
-## Usage
-
-### Basic Setup
+## Quick Start
 
 ```typescript
 import express from 'expresspro';
 
 const app = express();
 
-// CORS middleware is automatically available
+// Enable CORS
 app.use(express.cors());
 
-// Authentication middleware
-app.use(express.auth);
+// Initialize JWT Authentication
+const auth = new express.auth('your-secret-key', 'token');
 
-// Response utilities
-app.get('/', (req, res) => {
-  res.success('Hello World!');
+// Protected route
+app.get('/protected', auth.authMiddleware(), (req, res) => {
+  res.json({ message: 'Protected route accessed' });
 });
 
-// Password hashing
-const hashedPassword = await express.bcrypt.hash('password', 10);
-
-// Async handler
-app.get('/async', express.async(async (req, res) => {
-  // Your async code here
-}));
-
 app.listen(3000, () => {
-  console.log('Server is running on port 3000');
+  console.log('Server running on port 3000');
 });
 ```
 
-## API Reference
+## Documentation
 
-### Middleware
+For detailed documentation, please visit our [documentation](./docs/README.md) directory:
 
-- `express.cors()`: CORS middleware
-- `express.auth`: Authentication middleware
+- [Getting Started](./docs/getting-started.md)
+- [Authentication](./docs/authentication.md)
+- [Error Handling](./docs/error-handling.md)
+- [Response Utilities](./docs/response-utilities.md)
+- [Async Handler](./docs/async-handler.md)
+- [API Reference](./docs/api-reference.md)
 
-### Utilities
+## Available Extensions
 
-- `express.resp`: Response utilities
-- `express.bcrypt`: Bcrypt integration
-- `express.async`: Async handler
+### Authentication (`express.auth`)
+```typescript
+const auth = new express.auth('secret', 'token');
+app.get('/protected', auth.authMiddleware(), (req, res) => {
+  res.json({ user: req.user });
+});
+```
 
-## Dependencies
+### Builtin JWT (`express.jwt`)
+```typescript
+// Create token
+const token=express.jwt.sign({id: 1, name: 'Suryansh'});
+// Verify token
+const decoded = express.jwt.verify(token, 'secret');
+```
 
-- express: ^5.1.0
-- cors: ^2.8.5
-- bcrypt: ^6.0.0
-- jsonwebtoken: ^9.0.2
+### Error Handling (`express.error`)
+```typescript
+app.use(express.error);
+throw new express.AppError('Not found', 404);
+```
 
-## Development
+### Response Utilities (`express.resp`)
+```typescript
+express.resp(res, 200, 'Success', { data });
+```
 
-1. Clone the repository
-2. Install dependencies:
-   ```bash
-   pnpm install
-   ```
-3. Build the project:
-   ```bash
-   pnpm build
-   ```
+### Async Handler (`express.asyncHandler`)
+```typescript
+app.get('/async', express.asyncHandler(async (req, res) => {
+  const data = await someAsyncOperation();
+  res.json({ data });
+}));
+```
+
+## TypeScript Support
+
+ExpressPro is written in TypeScript and includes type definitions. The types are available in the `@types` directory.
+
+```typescript
+import express from 'expresspro';
+import { Request, Response } from 'express';
+
+app.get('/users', express.asyncHandler(async (req: Request, res: Response) => {
+  const users = await User.findAll();
+  res.json({ users });
+}));
+```
+
+## Contributing
+
+We welcome contributions! Please see our [Contributing Guide](./docs/contributing.md) for details.
+
+## Changelog
+
+See our [Changelog](./docs/changelog.md) for a list of changes.
 
 ## License
 
-ISC
+This project is licensed under the ISC License - see the [LICENSE](LICENSE) file for details.
 
 ## Author
 
@@ -97,4 +128,24 @@ Suryansh Verma
 
 ## Repository
 
-[GitHub Repository](https://github.com/suryanshvermaa/express-plus) 
+[GitHub Repository](https://github.com/suryanshvermaa/express-pro)
+
+## Support
+
+- [GitHub Issues](https://github.com/suryanshvermaa/express-pro/issues)
+- [Documentation](./docs/README.md)
+
+## Related Projects
+
+- [Express.js](https://expressjs.com/) - The web framework for Node.js
+- [jsonwebtoken](https://github.com/auth0/node-jsonwebtoken) - JSON Web Token implementation
+- [bcryptjs](https://github.com/dcodeIO/bcrypt.js/) - Password hashing
+
+## Security
+
+If you discover any security-related issues, please email suryanshverma.dev.official@gmail.com instead of using the issue tracker.
+
+## Acknowledgments
+
+- Express.js team for the amazing framework
+- All contributors who have helped shape ExpressPro 
