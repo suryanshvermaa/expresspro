@@ -3,6 +3,8 @@ import {AppError, NextFunction, Request, Response} from "express";
 /**
  * Auth class for handling JWT authentication
  * @class Auth
+ * @param {string} authSecret - The secret key used to sign the JWT tokens
+ * @param {string} tokenname - The name of the token in the request {headers/body/params/query/authorization-header}
  * @description This class provides methods to create and verify JWT tokens, and a middleware function to authenticate requests.
  */
 class Auth{
