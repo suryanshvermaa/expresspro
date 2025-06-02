@@ -1,5 +1,4 @@
 import express, { AppError, Request, Response ,resp, statusCodes} from "expresspro";
-
 const app=express();
 
 app.use(express.json());
@@ -7,6 +6,7 @@ app.use(express.cors());
 const auth=new express.auth("mySecret","authtoken");
 
 app.get("/",express.asyncHandler(async(req:Request,res:Response)=>{
+    req.headers.
     return resp(res,statusCodes.OK,"server is running",{});
 }))
 
