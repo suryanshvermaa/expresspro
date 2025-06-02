@@ -9,8 +9,8 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "allowSyntheticDefaultImports": true,
-    "typeRoots": ["@types","@types/express","@types/request","@types/expresspro"]
+    "typeRoots": ["@types", "node_modules/@types"]
   },
-  "exclude": ["./example","./dist","node_modules"],
+  "exclude": ["./example","./dist"],
   "include": ["./src"]
 }

@@ -1,9 +1,9 @@
 {
   "name": "expresspro",
-  "version": "1.0.4",
+  "version": "1.0.6",
   "description": "",
   "main": "dist/index.js",
-  "types": "@types",
+  "types": "@types/expresspro/index.d.ts",
   "files": [
     "@types",
     "dist"
@@ -27,7 +27,9 @@
     "bcryptjs": "^3.0.2",
     "cors": "^2.8.5",
     "express": "^5.1.0",
-    "jsonwebtoken": "^9.0.2"
+    "express-serve-static-core": "^0.1.1",
+    "jsonwebtoken": "^9.0.2",
+    "serve-static": "^2.2.0"
   },
   "devDependencies": {
     "@types/cors": "^2.8.18",
