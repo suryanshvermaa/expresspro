@@ -1,4 +1,4 @@
-import * as express from "./express";
+import e from "./express";
 /// <reference path="./express" />
 
-export=express;
+export=e;
