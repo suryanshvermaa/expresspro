@@ -145,6 +145,16 @@ declare namespace e {
      * @see https://www.npmjs.com/package/jsonwebtoken
      */
     export var jwt:typeof import("jsonwebtoken");
+    
+    /**
+     * @description status codes which are used in the response
+     * @see https://www.npmjs.com/package/http-status-codes
+     * @example
+     * import { statusCodes } from 'express';
+     * res.status(statusCodes.OK).json({ message: 'Success' });
+     * @type {object}
+     */
+    export var statusCodes: object;
 
 
     interface RouterOptions {
