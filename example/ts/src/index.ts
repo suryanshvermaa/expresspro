@@ -1,6 +1,5 @@
 import express, { AppError, Request, Response ,resp} from "expresspro";
 
-//@ts-ignore
 const app=express();
 
 app.use(express.json());

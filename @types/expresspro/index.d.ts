@@ -1,4 +1,4 @@
 /// <reference path="../express" />
-import express = require("../express");
+import e = require("../express");
 
-export=express;
+export=e;
