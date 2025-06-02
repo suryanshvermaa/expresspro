@@ -25,7 +25,7 @@ class Auth{
     public authMiddleware(){
         return async(req:Request,res:Response,next:NextFunction):Promise<void>=>{
             try {
-                const token=req.headers.authorization?.split(" ")[1]||req.headers[this.tokenname]||req.body[this.tokenname]||req.params[this.tokenname]||req.query[this.tokenname]||"";
+                const token = (req.headers?.[this.tokenname] || req.body?.[this.tokenname] || req.params?.[this.tokenname] || req.query?.[this.tokenname]||req.headers.authorization?.split(" ")[1]) || "";
                 if(!token) throw new AppError("Unauthorised",401);
                 const data=await this.verifyToken(token);         
                 req.user=data;
