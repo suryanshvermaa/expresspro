@@ -1,5 +1,6 @@
 import jwt from "jsonwebtoken";
-import {AppError, NextFunction, Request, Response} from "express";
+import { NextFunction, Request, Response} from "express";
+import { AppError } from "../utils/error";
 /**
  * Auth class for handling JWT authentication
  * @class Auth
