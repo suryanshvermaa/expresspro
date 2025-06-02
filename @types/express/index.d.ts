@@ -154,7 +154,39 @@ declare namespace e {
      * res.status(statusCodes.OK).json({ message: 'Success' });
      * @type {object}
      */
-    export var statusCodes: object;
+    interface IStatusCodes {
+        OK : number,
+        CREATED : number,
+        ACCEPTED : number,
+        NO_CONTENT : number,
+        PARTIAL_CONTENT : number,
+        Already_Reported : number,
+        IM_USED : number,
+        MULTIPLE_CHOICES : number,
+        MOVED_PERMANENTLY : number,
+        FOUND : number,
+        SEE_OTHER : number,
+        NOT_MODIFIED : number,
+        TEMPORARY_REDIRECT : number,
+        PERMANENT_REDIRECT : number,
+        BAD_REQUEST : number,
+        UNAUTHORIZED : number,
+        FORBIDDEN : number,
+        NOT_FOUND : number,
+        CONFLICT : number,
+        Method_Not_Allowed : number,
+        REQUEST_TIMEOUT : number,
+        PRECONDITION_FAILED : number,
+        UNPROCESSABLE_ENTITY : number,
+        TOO_MANY_REQUESTS : number,
+        INTERNAL_SERVER_ERROR : number,
+        SERVICE_UNAVAILABLE : number,
+        GATEWAY_TIMEOUT : number,
+        NOT_IMPLEMENTED : number,
+        BAD_GATEWAY : number,
+        NETWORK_AUTHENTICATION_REQUIRED : number
+    }
+    export var statusCodes:IStatusCodes;
 
 
     interface RouterOptions {
