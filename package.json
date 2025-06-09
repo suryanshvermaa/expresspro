@@ -9,7 +9,8 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "prepare": "husky"
   },
   "keywords": [
     "express-plus",
@@ -34,6 +35,7 @@
     "@types/cors": "^2.8.18",
     "@types/express-serve-static-core": "^5.0.6",
     "@types/jsonwebtoken": "^9.0.9",
-    "@types/serve-static": "^1.15.7"
+    "@types/serve-static": "^1.15.7",
+    "husky": "^9.1.7"
   }
 }
