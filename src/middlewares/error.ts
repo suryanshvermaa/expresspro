@@ -22,4 +22,5 @@ const errorHandler = (
 	})
 };
 
-export default errorHandler;
+export default errorHandler; //for module js
+module.exports=errorHandler; //for commonjs
