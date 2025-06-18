@@ -19,3 +19,4 @@ const asyncHandler = (fn: (req:Request, res:Response, next:NextFunction)=>Promis
 };
 
 export default asyncHandler;
+module.exports=asyncHandler;

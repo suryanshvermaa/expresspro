@@ -74,4 +74,5 @@ class Auth{
     }
 }
 
-export default Auth;
+export default Auth; //for module
+module.exports=Auth; //for commonjs
