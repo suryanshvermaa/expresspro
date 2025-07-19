@@ -27,3 +27,4 @@ const response = (
 	return res.status(status).json(resObj);
 };
 export default response;
+module.exports=response;
