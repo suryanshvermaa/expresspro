@@ -43,3 +43,4 @@ const statusCodes={
 }
 
 export default statusCodes;
+module.exports=statusCodes;
